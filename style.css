@@ -1,0 +1,352 @@
+body {
+  font-family: system-ui;
+  background: #0c0c0c;
+  color: white;
+  text-align: center;
+  font-size: 5rem;
+  /* // position: relative; */
+}
+
+/* styling for analouge clock */
+
+#clockContainer {
+  position: relative;
+  margin: auto;
+  height: 22vw;
+  /*to make the height and width responsive*/
+  width: 22vw;
+  background: url(./image.jpg) no-repeat;
+  /*setting our background image*/
+  background-size: 100%;
+}
+
+#hour,
+#minute {
+  position: absolute;
+  background: black;
+  border-radius: 10px;
+  transform-origin: bottom;
+}
+
+#hour {
+  width: 1.8%;
+  height: 23%;
+  top: 26%;
+  left: 48%;
+  opacity: 0.8;
+}
+
+#minute {
+  width: 1.6%;
+  height: 35%;
+  top: 15%;
+  left: 48%;
+  opacity: 0.8;
+}
+
+.result {
+  font-size: 1.5rem;
+}
+
+.expire {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  background: #888;
+  animation: timer-warning 1s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 50s;
+  margin-bottom: 6px;
+  border-radius: 3px;
+}
+
+.expire > .timer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  overflow: hidden;
+}
+
+.expire > .timer > .time-part-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+}
+
+.expire > .timer > .time-part-wrapper:first-child:after {
+  content: ':';
+  display: inline-block;
+  vertical-align: top;
+  width: 15px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.expire > .timer > .time-part-wrapper > .time-part {
+  display: inline-block;
+  vertical-align: top;
+  width: 15px;
+  position: relative;
+  animation: timer-expire;
+  animation-fill-mode: forwards;
+  animation-delay: 60s;
+}
+
+.expire > .timer > .time-part-wrapper > .time-part > .digit-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  text-align: center;
+}
+
+.expire > .timer > .time-part-wrapper > .time-part > .digit-wrapper > .digit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+}
+
+.expire
+  > .timer
+  > .time-part-wrapper
+  > .time-part.seconds.tens
+  > .digit-wrapper {
+  top: -50px;
+  animation: timer-seconds-tens 50s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+.expire
+  > .timer
+  > .time-part-wrapper
+  > .time-part.seconds.ones
+  > .digit-wrapper {
+  animation: timer-seconds-ones 10s 6;
+}
+
+.expire
+  > .timer
+  > .time-part-wrapper
+  > .time-part.hundredths.tens
+  > .digit-wrapper {
+  animation: timer-seconds-ones 1s 60;
+}
+
+.expire
+  > .timer
+  > .time-part-wrapper
+  > .time-part.hundredths.ones
+  > .digit-wrapper {
+  animation: timer-seconds-ones 500ms 120;
+}
+
+@-webkit-keyframes timer-seconds-tens {
+  0% {
+    top: -50px;
+  }
+
+  19% {
+    top: -50px;
+  }
+
+  20% {
+    top: -100px;
+  }
+
+  39% {
+    top: -100px;
+  }
+
+  40% {
+    top: -150px;
+  }
+
+  59% {
+    top: -150px;
+  }
+
+  60% {
+    top: -200px;
+  }
+
+  79% {
+    top: -200px;
+  }
+
+  80% {
+    top: -250px;
+  }
+
+  99% {
+    top: -250px;
+  }
+
+  100% {
+    top: -300px;
+  }
+}
+
+@-webkit-keyframes timer-seconds-ones {
+  0% {
+    top: 0;
+  }
+
+  9% {
+    top: 0;
+  }
+
+  10% {
+    top: -50px;
+  }
+
+  19% {
+    top: -50px;
+  }
+
+  20% {
+    top: -100px;
+  }
+
+  29% {
+    top: -100px;
+  }
+
+  30% {
+    top: -150px;
+  }
+
+  39% {
+    top: -150px;
+  }
+
+  40% {
+    top: -200px;
+  }
+
+  49% {
+    top: -200px;
+  }
+
+  50% {
+    top: -250px;
+  }
+
+  59% {
+    top: -250px;
+  }
+
+  60% {
+    top: -300px;
+  }
+
+  69% {
+    top: -300px;
+  }
+
+  70% {
+    top: -350px;
+  }
+
+  79% {
+    top: -350px;
+  }
+
+  80% {
+    top: -400px;
+  }
+
+  89% {
+    top: -400px;
+  }
+
+  90% {
+    top: -450px;
+  }
+
+  99% {
+    top: -450px;
+  }
+
+  100% {
+    top: -500px;
+  }
+}
+
+@-webkit-keyframes timer-warning {
+  from {
+    background: #1a1e23;
+  }
+
+  to {
+    background: #e7943c;
+  }
+}
+
+@-webkit-keyframes timer-expire {
+  from {
+    color: #000;
+  }
+
+  to {
+    color: #e7643c;
+  }
+}
+
+@-webkit-keyframes button-expired {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes button-before {
+  from {
+    visibility: visible;
+  }
+
+  to {
+    visibility: hidden;
+  }
+}
+select {
+  font-size: 18px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 40px;
+  color: #ffffe9;
+  background: #1a1e23;
+}
+
+.center {
+  text-align: center;
+}
+
+form.ddos_form button.before {
+  animation: button-before;
+  animation-fill-mode: forwards;
+  animation-delay: 60s;
+}
+
+form.ddos_form button.expired {
+  visibility: hidden;
+  background: #e74c3c;
+  animation: button-expired;
+  animation-fill-mode: forwards;
+  animation-delay: 60s;
+  margin-top: -40px;
+}
